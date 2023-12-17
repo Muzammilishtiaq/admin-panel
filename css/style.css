@@ -1,0 +1,59 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* admin panel css */
+#admin-panel{
+    height: 100vh;
+    width: 100%;
+}
+
+#sidebar{
+    padding: 15px;
+    display: flex ;
+    flex-direction: column;
+    gap: 20px;
+    color: white;
+    float: left;
+}
+
+.navbar-nav .nav-item:hover{
+    background-color: aquamarine;
+}
+#navbar-list{
+gap: 15px;
+}
+.cursor{
+    cursor: pointer;
+}
+
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+th, td {
+    border: 1px solid #ddd;
+    padding: 8px;
+    text-align: left;
+}
+
+ tbody tr, td {
+font-size:12px;
+
+}
+
+th {
+    background-color: #f2f2f2;
+}
+td {
+    background-color: #f2f2f2;
+}
+
+.hidden{
+    display: none;
+}
