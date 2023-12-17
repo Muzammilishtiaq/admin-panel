@@ -100,7 +100,9 @@ $(document).ready(function () {
         // hide and show properity
         $('#uploadvideo-table').show();
         $('#uploadvideo-form').hide();
-        $('#uploadvideo-form').html().reset();
+        // $('#uploadvideo-form').html().reset();
+        document.getElementById('uploadvideo-form').reset()
+        uploadvideotableform()
     });
     // end video upload function
 });
@@ -109,39 +111,39 @@ $(document).ready(function () {
 
 
 // livesream form table function
-function livestreamtableform (){
- const liveStreamDataGet = localStorage.getItem('liveStreamData')
-        if (liveStreamDataGet == null) {
-            liveStreamArray = [];
-        } else {
-            liveStreamArray = JSON.parse(liveStreamDataGet)
-        }
-         let html = '';
-        liveStreamArray.forEach((item, index) => {
-            html += `
+function livestreamtableform() {
+    const liveStreamDataGet = localStorage.getItem('liveStreamData')
+    if (liveStreamDataGet == null) {
+        liveStreamArray = [];
+    } else {
+        liveStreamArray = JSON.parse(liveStreamDataGet)
+    }
+    let html = '';
+    liveStreamArray.forEach((item, index) => {
+        html += `
             <tr class="row">
             <td class="col-1">${index + 1}</td>
             <td class="col-2">${item.liveTile}</td>
             <td class="col-7 ">${item.liveUrl}</td>
             <td class="col-2">
-                <button class="border-0 text-info fw-bold" id="live-stream-edit">Edit</button>
+                <button id="${index}" class="border-0 text-info fw-bold" id="live-stream-edit" onclick="livestreameditbtn(this.idt)">Edit</button>
                 <button class="border-0 text-info fw-bold" id="live-stream-view">View</button>
-                <button class="border-0 text-info fw-bold" id="live-stream-delete">Delete</button>
+                <button id="${index}" class="border-0 text-info fw-bold" id="live-stream-delete"  onclick="livestreamdetetebtn(this.id)">Delete</button>
             </td>
         </tr>`;
-        });
+    });
 
-        let tableBody = document.getElementById('live-stream-tbody');
-        if (liveStreamArray.length != 0) {
-            tableBody.innerHTML = html;
-        }else{
-            tableBody.innerHTML = 'Live stream 0'
-        }
+    let tableBody = document.getElementById('live-stream-tbody');
+    if (liveStreamArray.length != 0) {
+        tableBody.innerHTML = html;
+    } else {
+        tableBody.innerHTML = 'Live stream 0'
+    }
 }
 
 
 // uploadvideo form table function
-function uploadvideotableform(){
+function uploadvideotableform() {
     let videouploaddataget = localStorage.getItem('uploadvideosetdata')
     if (videouploaddataget == null) {
         videouploadArray = []
@@ -158,7 +160,7 @@ function uploadvideotableform(){
         <td class="col-2">
             <button class="border-0 text-info fw-bold" id="live-stream-edit">Edit</button>
             <button class="border-0 text-info fw-bold" id="live-stream-view">View</button>
-            <button class="border-0 text-info fw-bold" id="live-stream-delete">Delete</button>
+            <button id="${index}" class="border-0 text-info fw-bold" id="live-stream-delete" onclick="uploadvideodeletebtn(this.id)">Delete</button>
         </td>
     </tr>`;
     });
@@ -166,8 +168,36 @@ function uploadvideotableform(){
     let uploadtableBody = document.getElementById('video-upload-tbody');
     if (videouploadArray.length != 0) {
         uploadtableBody.innerHTML = html;
-    }else{
-        uploadtableBody.innerHTML= 'upload video 0'
+    } else {
+        uploadtableBody.innerHTML = 'upload video 0'
     }
 }
+
+// delete button
+function livestreamdetetebtn(index) {
+    console.log(index)
+    const liveStreamDataGet = localStorage.getItem('liveStreamData')
+    if (liveStreamDataGet == null) {
+        liveStreamArray = [];
+    } else {
+        liveStreamArray = JSON.parse(liveStreamDataGet)
+    }
+    liveStreamArray.splice(index, 1)
+    localStorage.setItem('liveStreamData', JSON.stringify(liveStreamArray))
+    livestreamtableform()
+}
+
+function uploadvideodeletebtn(index) {
+    console.log(index)
+    let videouploaddataget = localStorage.getItem('uploadvideosetdata')
+    if (videouploaddataget == null) {
+        videouploadArray = []
+    } else {
+        videouploadArray = JSON.parse(videouploaddataget)
+    }
+    videouploadArray.splice(index, 1)
+    localStorage.setItem('uploadvideosetdata', JSON.stringify(videouploadArray))
+    uploadvideotableform()
+}
+// end delete btn
 
