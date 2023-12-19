@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./css/all.min.css">
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/style.css">
+    <script src="./js/jquery.min.js"></script>
+
+</head>
+
+<body>
+    <div class="row container" id="admin-panel">
+        <div class="col-2 bg-info" id="sidebar">
+            <h4>Live Stream App</h4>
+            <ul class="navbar-nav" id="navbar-list">
+                <a href="dashboard.html" class="nav-item cursor">Dashboard</a>
+                <a href="live-stream.html" class="nav-item cursor">Live Streams</a>
+                <a href="video.html" class="nav-item cursor">Videos</a>
+                <li class="nav-item cursor" id="logeout-link">Logout</li>
+            </ul>
+        </div>
+        <!-- main -->
+        <div class="col-10" id="main-content">
+                        <!-- video upload -->
+                        <div class="container p-5" id="videos">
+                            <!-- navbar video upload -->
+                            <div class="d-flex  justify-content-between">
+                                <h2 class="nav-item text-info">Videos</h2>
+                                <!-- <li class="nav-item"></li> -->
+                                <button id="add-video-btn" class="btn btn-info text-white fs-5 fw-bold rounded-0">Add Video</button>
+                            </div>
+                            <!-- table video upload -->
+                            <table id="uploadvideo-table">
+                                <thead>
+                                    <tr class="row">
+                                        <th class="col-1 text-center">#</th>
+                                        <th class="col-2 text-center">TITLE</th>
+                                        <th class="col-7 text-center">URL</th>
+                                        <th class="col-2 text-center">ACTION</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="video-upload-tbody">
+                                    <!-- table tbody -->
+                                </tbody>
+                            </table>
+            
+                            <!-- form -->
+                            <form action="" id="uploadvideo-form">
+                                <div class="mb-3">
+                                    <label for="title" class="form-label">Title</label>
+                                    <input type="text" class="form-control" id="video-upload-title" placeholder="Enter Title">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="description" class="form-label">Description</label>
+                                    <textarea class="form-control" id="video-upload-description" placeholder="Enter Description"
+                                        cols="5" rows="5"></textarea>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="url" class="form-label">URL</label>
+                                    <input type="text" class="form-control" id="video-upload-url" placeholder="Enter URL">
+                                </div>
+                                <input type="submit" value="Save" class="btn btn-info">
+                            </form>
+            
+            
+                        </div>
+                        <!-- end video  upload -->
+        </div>
+    </div>
+
+
+    <script src="./js/js.js"></script>
+    <script src="./js/uploadvideo.js"></script>
+    <script src="./js/all.min.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/jquery.min.js"></script>
+</body>
+
+</html>

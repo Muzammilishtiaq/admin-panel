@@ -43,9 +43,9 @@ $(document).ready(function () {
             let localStoragedata = JSON.parse(localStoragejsondata)
             if (loginEmail === localStoragedata.email && loginPassword === localStoragedata.password) {
                 console.log('success')
-                window.location.href = 'Admin.html';
+                window.location.href = 'dashboard.html';
             } else {
-                alert('Not Correct ')
+                alert('Email or Password is not correct ')
                 console.log('not success')
             }
         } else {

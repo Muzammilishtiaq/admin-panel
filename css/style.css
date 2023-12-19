@@ -21,6 +21,15 @@
 
 .navbar-nav .nav-item:hover{
     background-color: aquamarine;
+    border-radius: 50px;
+    color: black;
+}
+.navbar-nav .nav-item{
+    padding-left:15px;
+    padding-right:15px;
+    padding-top:5px;
+    padding-bottom:5px;
+
 }
 #navbar-list{
 gap: 15px;
@@ -56,4 +65,8 @@ td {
 
 .hidden{
     display: none;
+}
+a{
+    text-decoration: none;
+    color: #fff;
 }
