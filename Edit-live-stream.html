@@ -12,7 +12,7 @@
 
 </head>
 
-<body onLoad="livestreamPageLoad()">
+<body onload="onEditPageLoad()">
     <div class="row container" id="admin-panel">
         <div class="col-2 bg-info" id="sidebar">
             <h4>Live Stream App</h4>
@@ -25,48 +25,28 @@
         </div>
         <!-- main -->
         <div class="col-10" id="main-content">
-            <!-- live stream -->
-            <div class="container p-5" id="live-stream">
+            <!-- edit live stream -->
+            <div class="container p-5" id="edit-live-stream">
                 <!-- navbar live stream -->
                 <div class="d-flex  justify-content-between">
-                    <h2 class="nav-item text-info">Live Stream</h2>
-                    <!-- <li class="nav-item"></li> -->
-                    <button id="add-livestream-btn" class="btn btn-info text-white fs-5 fw-bold rounded-0">Add Live
-                        Stream</button>
+                    <h2 class="nav-item text-info">Edit Live Stream</h2>
                 </div>
-                <!-- table live stream -->
-                <table class="container-fluid" id="livestream-table">
-                    <thead>
-                        <tr class="row">
-                            <th class="col-1 text-center">#</th>
-                            <th class="col-2 text-center">TITLE</th>
-                            <th class="col-7 text-center">URL</th>
-                            <th class="col-2 text-center">ACTION</th>
-                        </tr>
-                    </thead>
-                    <tbody id="live-stream-tbody">
-                        <!-- table tbody -->
-
-                    </tbody>
-                </table>
-
                 <!-- form -->
-                <form action="" id="add-livestream-form" class="p-5" s>
+                <form action="" id="edit-livestream-form" class="p-5" s>
                     <div class="mb-3">
                         <label for="title" class="form-label">Title</label>
-                        <input type="text" class="form-control" id="live-stream-title" placeholder="Enter Title">
+                        <input type="text" class="form-control" id="edit-live-stream-title" placeholder="Enter Title">
                     </div>
                     <div class="mb-3">
                         <label for="description" class="form-label">Description</label>
-                        <textarea class="form-control" id="live-stream-description" placeholder="Enter Description"
+                        <textarea class="form-control" id="edit-live-stream-description" placeholder="Enter Description"
                             cols="5" rows="5"></textarea>
                     </div>
                     <div class="mb-3">
                         <label for="url" class="form-label">URL</label>
-                        <input type="text" class="form-control" id="live-stream-url" placeholder="Enter URL">
+                        <input type="text" class="form-control" id="edit-live-stream-url" placeholder="Enter URL">
                     </div>
-                    <input type="submit" id="livebtn" value="Save" class="btn btn-info">
-                    <input type="hidden"  value="Save" class="btn btn-info">
+                    <input type="submit" value="Update" class="btn btn-info">
                 </form>
 
 

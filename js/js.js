@@ -24,6 +24,7 @@ $(document).ready(function () {
 
 
         }
+        
         // register form data  localstorage set item
         localStorage.setItem('registerpush', JSON.stringify(registerData))
 
