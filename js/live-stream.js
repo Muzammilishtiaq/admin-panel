@@ -1,6 +1,7 @@
 // start live stream naviten click window time hide 
 $('#add-livestream-form').hide();
 $('#livestream-table').hide();
+// $('#loader').hide();
 // end 
 
 //  start add live stream button function
@@ -15,11 +16,13 @@ $('#add-livestream-btn').click(function (e) {
 // start add live stream form function 
 $('#add-livestream-form').submit(function (e) {
     e.preventDefault();
+    $('#loader').show();
     console.log('success')
     const liveStreamData = {
         liveTile: $('#live-stream-title').val(),
         liveDes: $('#live-stream-description').val(),
-        liveUrl: $('#live-stream-url').val()
+        liveUrl: $('#live-stream-url').val(),
+        liveimg: $('#live-stream-imgurl').val()
     }
     // start localstorage data set and get
     const liveStreamDataGet = localStorage.getItem('liveStreamData')
@@ -27,6 +30,7 @@ $('#add-livestream-form').submit(function (e) {
         liveStreamArray = [];
     } else {
         liveStreamArray = JSON.parse(liveStreamDataGet)
+        $('#loader').hide();
     }
     liveStreamArray.push(liveStreamData)
 
@@ -60,11 +64,11 @@ function livestreamtableform() {
             <tr class="row">
             <td class="col-1">${index + 1}</td>
             <td class="col-2">${item.liveTile}</td>
-            <td class="col-7 ">${item.liveUrl}</td>
-            <td class="col-2">
-                <button id="${index}" class="border-0 text-info fw-bold"  onclick="livestreameditbtn(this.id)">Edit</button>
-                <button class="border-0 text-info fw-bold" id='${index}'  onclick="livestreamviewbtn(this.id)">View</button>
-                <button id="${index}" class="border-0 text-info fw-bold" onclick="livestreamdetetebtn(this.id)">Delete</button>
+            <td class="col-5 ">${item.liveUrl}</td>
+            <td class="col-1 action-btn">
+                <button id="${index}" class="border-0 text-white fw-bold"  onclick="livestreameditbtn(this.id)"> <span class="bg-success text-white px-1 py-1 rounded"><i class="fa-solid fa-pen"></i></span></button>
+                <button class="border-0 text-info fw-bold" id='${index}'  onclick="livestreamviewbtn(this.id)"> <span class="bg-warning text-white px-1 py-1 rounded"><i class="fa-solid fa-eye text-white "></i></span></button>
+                <button id="${index}" class="border-0 text-info fw-bold" onclick="livestreamdetetebtn(this.id)"> <span class="bg-danger text-white px-1 py-1 rounded"><i class="fa-solid fa-trash"></i></span></button>
             </td>
         </tr>`;
     });
@@ -93,42 +97,17 @@ function livestreamdetetebtn(index) {
     livestreamtableform()
 }
 
-// view button
-function livestreamviewbtn(index) {
-
-    const liveStreamDataGet = localStorage.getItem('liveStreamData');
-    if (liveStreamDataGet) {
-        // Parse the JSON data
-        liveStreamArray = JSON.parse(liveStreamDataGet);
-
-        // Retrieve the selected live stream data
-        const selectedLiveStream = liveStreamArray[index];
-
-        // Get the video URL from the selected live stream
-        const videoUrl = selectedLiveStream.liveUrl;
-
-        // Display the video in a modal or another element on the page
-        showVideoModal(videoUrl);
-        console.log(videoUrl)
-    }
-
-}
-function showVideoModal(videoUrl) {
-    var videoelement = document.getElementById('my-video');
-    var player = videojs(videoelement);
-
-    player.src({
-        type: "application/x-mpegURL",
-        src: videoUrl
-    });
-}
-
-
-
+// live stream page load function start
 function livestreamPageLoad() {
     // alert('live stream page')
+
+    //   let loader=  $('#loader').show();
+    setTimeout(() => {
+        loader
+    }, 4000);
     $('#livestream-table').show();
     livestreamtableform()
+
 }
 
 // edit button function start
@@ -136,6 +115,7 @@ function livestreameditbtn(index) {
     window.location.href = `edit-live-stream.html?id=${index}`;
 }
 function onEditPageLoad() {
+    // $('#loader').addClass(hidden);
     const urlParams = new URLSearchParams(window.location.search);
     const index = urlParams.get('id');
 
@@ -148,15 +128,13 @@ function onEditPageLoad() {
             $('#edit-live-stream-title').val(liveStreamArray[index].liveTile);
             $('#edit-live-stream-description').val(liveStreamArray[index].liveDes);
             $('#edit-live-stream-url').val(liveStreamArray[index].liveUrl);
+            $('#edit-live-stream-imgurl').val(liveStreamArray[index].liveimg);
         }
         console.log(liveStreamArray);
     } else {
         console.error('Index not provided in the URL.');
     }
 }
-
-
-
 // Handle form submission for updating data edit button
 $('#edit-livestream-form').submit(function (e) {
     e.preventDefault();
@@ -169,6 +147,7 @@ $('#edit-livestream-form').submit(function (e) {
         liveStreamArray[index].liveTile = $('#edit-live-stream-title').val();
         liveStreamArray[index].liveDes = $('#edit-live-stream-description').val();
         liveStreamArray[index].liveUrl = $('#edit-live-stream-url').val();
+        liveStreamArray[index].liveimg = $('#edit-live-stream-imgurl').val();
     }
 
     // Update the data in local storage
@@ -177,6 +156,97 @@ $('#edit-livestream-form').submit(function (e) {
     console.log(liveStreamArray)
     // Update the live stream table on the page
     livestreamtableform();
-   window.location.href='live-stream.html';
+    window.location.href = 'live-stream.html';
 });
 // end edit function
+
+// view button function start
+function livestreamviewbtn(index) {
+    window.location.href = `livestreamVPL.html?id=${index}`;
+}
+function livestreamVPLPageload() {
+    const urlParams = new URLSearchParams(window.location.search);
+    const index = urlParams.get('id');
+    // Update the live stream data in the array
+    const liveStreamDataGet = localStorage.getItem('liveStreamData');
+    if (liveStreamDataGet) {
+        liveStreamArray = JSON.parse(liveStreamDataGet);
+        videoelement = document.getElementById('my-video');
+        player = videojs(videoelement)
+        player.src({
+            type: "application/x-mpegURL",
+            src: liveStreamArray[index].liveUrl
+        });
+    }
+}
+// view button function end
+
+// window load page spinner animate
+$(document).ready(function () {
+    const loader = $('.loader');
+
+    loader.addClass('hidden');
+
+    loader.on('transitionend', function () {
+        $('body').removeClass('loader-hidden');
+        $('#livestream-table').hide();
+    });
+});
+
+
+
+// for each loop card list index page
+$(document).ready(function () {
+    const liveStreamDataGet = localStorage.getItem('liveStreamData');
+    if (liveStreamDataGet) {
+        liveStreamArray = JSON.parse(liveStreamDataGet);
+        let cardlist = '';
+        liveStreamArray.forEach((viditem, index) => {
+            console.log('card list', viditem.liveimg);
+            cardlist += `
+            <div class="col position-relative" ${index}>
+          <a href="#" onclick="changevideo('${viditem.liveUrl}','application/x-mpegURL')" >
+          <div class="" style="width: 18rem;">
+          <img src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/WhatCarCanYouGetForAGrand.jpg" class="card-img-top" alt="...">
+      </div>
+          </a>
+            <h6 class="text-white bg-danger position-absolute top-0 ms-3 mt-5 fw-bold  p-1 rounded">Live ${index + 1}</h6>
+        </div>
+                `;
+        });
+        if (liveStreamArray.length != 0) {
+            // uploadtableBody.innerHTML = html;
+            $('#card-container-live-stream').html(cardlist);
+        } else {
+            // uploadtableBody.innerHTML = 'upload video 0'
+            $('#card-container-live-stream').html('live stream  Video Is Not Found');
+        }
+    }
+});
+
+
+// video change index page
+function changevideo(url,type){
+    window.location.href=`videoplayer.html?watch=${url}&type=${type}`;
+}
+
+$(document).ready(function () {
+      // Get the parameters from the URL
+  const urlParams = new URLSearchParams(window.location.search);
+  
+  // Extract the 'watch' and 'type' parameters
+  const url = urlParams.get('watch');
+  const type = urlParams.get('type');
+
+  // Now you can use the 'url' and 'type' variables in your videoplayerpageload function
+  console.log('URL:', url);
+  console.log('Type:', type);
+
+  let videoelement = document.getElementById('my-video');
+  var player = videojs(videoelement)
+  player.src({
+      type: type,
+      src: url
+  });
+
+});
