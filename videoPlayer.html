@@ -9,38 +9,50 @@
   <link href="https://unpkg.com/@videojs/themes@1/dist/sea/index.css" rel="stylesheet" />
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/style.css">
+  <link rel="stylesheet" href="css/all.min.css">
 </head>
 
 <body onload="videoplayerpageload()">
-  <nav class="navbar navbar-expand-lg bg-body-tertiary">
-    <div class="container">
-        <a class="navbar-brand" href="#">Streaming Web</a>
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
-            aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+  <div class="center-loader">
+    <div class="loader" id="loader">
+        <img src="img/loader.gif" alt="">
+    </div>
+</div>
+<!-- loader -->
+    <!-- navbar start -->
+    <nav class="navbar navbar-expand-lg bg-body-black">
+      <div class="container-fluid">
+          <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <i class="fa-solid fa-bars text-white"></i>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="index.html">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="#">Tearm</a>
-                </li>
-            </ul>
-            <div>
-                <a href="user.html" class="btn btn-success">Login</a>
-            </div>
-        </div>
-    </div>
-</nav>
+          <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 nav-index">
+              <li class="nav-item">
+                  <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="index.html">Home</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="Stream.html">Live Stream</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="#">Blog</a>
+              </li>
+              <li class="nav-item">
+                  <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="#">Shop</a>
+              </li>
+          </ul>
+          <div>
+              <a href="user.html" class="login-btn">
+                  <i class="fa-solid fa-right-to-bracket"></i><span>Login</span></a>
 
-<div class="container py-5">
-  <video id="my-video" class="video-js"  controls preload="auto" width="940" height="364"
+          </div>
+        </div>
+      </div>
+    </nav>
+  <!-- navbar end -->
+
+<div class=" video-player">
+  <video id="my-video" class="video-js"  controls preload="auto"
   data-setup="{}">
   <source src= "http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4" type="video/mp4">
   <!-- <p class="vjs-no-js">
@@ -52,6 +64,7 @@
 </div>
 
   <script src="./js/bootstrap.min.js"></script>
+  <script src="js/all.min.js"></script>
   <script src="./js/jquery.min.js"></script>
   <script src="./js/uploadvideo.js"></script>
   <script src="./js/live-stream.js"></script>

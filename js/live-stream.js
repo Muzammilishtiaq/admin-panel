@@ -61,11 +61,11 @@ function livestreamtableform() {
     var html = '';
     liveStreamArray.forEach((item, index) => {
         html += `
-            <tr class="row">
-            <td class="col-1">${index + 1}</td>
-            <td class="col-2">${item.liveTile}</td>
-            <td class="col-5 ">${item.liveUrl}</td>
-            <td class="col-1 action-btn">
+            <tr class="">
+            <td class="">${index + 1}</td>
+            <td class="">${item.liveTile}</td>
+            <td class=" livestream-url ">${item.liveUrl}</td>
+            <td class=" action-btn">
                 <button id="${index}" class="border-0 text-white fw-bold"  onclick="livestreameditbtn(this.id)"> <span class="bg-success text-white px-1 py-1 rounded"><i class="fa-solid fa-pen"></i></span></button>
                 <button class="border-0 text-info fw-bold" id='${index}'  onclick="livestreamviewbtn(this.id)"> <span class="bg-warning text-white px-1 py-1 rounded"><i class="fa-solid fa-eye text-white "></i></span></button>
                 <button id="${index}" class="border-0 text-info fw-bold" onclick="livestreamdetetebtn(this.id)"> <span class="bg-danger text-white px-1 py-1 rounded"><i class="fa-solid fa-trash"></i></span></button>
@@ -183,9 +183,9 @@ function livestreamVPLPageload() {
 
 // window load page spinner animate
 $(document).ready(function () {
-    const loader = $('.loader');
+    const loader = $('#loader');
 
-    loader.addClass('hidden');
+    loader.addClass('loader-hidden');
 
     loader.on('transitionend', function () {
         $('body').removeClass('loader-hidden');
@@ -208,6 +208,7 @@ $(document).ready(function () {
           <a href="#" onclick="changevideo('${viditem.liveUrl}','application/x-mpegURL')" >
           <div class="" style="width: 18rem;">
           <img src="http://commondatastorage.googleapis.com/gtv-videos-bucket/sample/images/WhatCarCanYouGetForAGrand.jpg" class="card-img-top" alt="...">
+          <h2 class="text-white">${viditem.liveTile}</h2>
       </div>
           </a>
             <h6 class="text-white bg-danger position-absolute top-0 ms-3 mt-5 fw-bold  p-1 rounded">Live ${index + 1}</h6>

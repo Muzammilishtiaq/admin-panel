@@ -51,11 +51,11 @@ function uploadvideotableform() {
     let html = '';
     videouploadArray.forEach((item, index) => {
         html += `
-    <tr class="row">
-    <td class="col-1">${index + 1}</td>
-    <td class="col-2">${item.uploadvideoTile}</td>
-    <td class="col-7">${item.uploadvideoUrl}</td>
-    <td class="col-2 action-btn">
+    <tr class="">
+    <td class="">${index + 1}</td>
+    <td class="">${item.uploadvideoTile}</td>
+    <td class="uploadvideo-videourl">${item.uploadvideoUrl}</td>
+    <td class=" action-btn">
         <button class="border-0 text-info fw-bold" id="${index}" onclick="videouploadEditbtn(this.id)"> <span class="bg-success text-white px-1 py-1 rounded"><i class="fa-solid fa-pen"></i></span></button>
         <button class="border-0 text-info fw-bold" id="${index}" onclick="videouploadviewbtn(this.id)"> <span class="bg-warning text-white px-1 py-1 rounded"><i class="fa-solid fa-eye text-white "></i></span></button>
         <button class="border-0 text-info fw-bold" id="${index}" onclick="uploadvideodeletebtn(this.id)"><span class="bg-danger text-white px-1 py-1 rounded"><i class="fa-solid fa-trash"></i></span></button>
@@ -108,6 +108,7 @@ function onEditvideoPageLoad() {
             $('#edit-video-title').val(videouploadArray[index].uploadvideoTile);
             $('#edit-video-description').val(videouploadArray[index].uploadvideodesc);
             $('#edit-video-url').val(videouploadArray[index].uploadvideoUrl);
+            $('#edit-img-video-url').val(videouploadArray[index].uploadvideoImgUrl);
         }
         console.log(videouploadArray)
     } else {
@@ -124,6 +125,7 @@ $('#edit-video-form').submit(function (e) {
         videouploadArray[index].uploadvideoTile = $('#edit-video-title').val();
         videouploadArray[index].uploadvideodesc = $('#edit-video-description').val();
         videouploadArray[index].uploadvideoUrl = $('#edit-video-url').val();
+        videouploadArray[index].uploadvideoImgUrl = $('#edit-img-video-url').val();
     }
     localStorage.setItem('uploadvideosetdata', JSON.stringify(videouploadArray))
     uploadvideotableform()
@@ -153,16 +155,6 @@ function uploadvideoplayerPageload() {
 }
 // view button function end
 
-// window load page spinner animate
-$(document).ready(function () {
-    const loader = $('.loader');
-    loader.addClass('loader-hidden');
-
-    loader.on('transitionend', function () {
-        loader.remove();
-        $('#uploadvideo-table').hide();
-    });
-});
 
 
 // for each loop card list index page
@@ -174,9 +166,10 @@ $(document).ready(function () {
         videouploadArray.forEach((viditem, index) => {
             console.log('card list', viditem);
             cardlist += `
-                <div class="videouploadcard  col" ${index}>
+                <div class=" videouploadcard  col" ${index}>
                 <a href="#" onclick="changevideo('${viditem.uploadvideoUrl}','video/mp4')"  >
                 <img src="${viditem.uploadvideoImgUrl}" alt=""></a>
+                <h3 class="text-white fw-bold">${viditem.uploadvideoTile}</h3>
             </div>
                 `;
         });

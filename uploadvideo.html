@@ -13,6 +13,40 @@
 </head>
 
 <body onload="videouploadPageLoad()">
+    <div class="center-loader">
+        <div class="loader" id="loader">
+            <img src="img/loader.gif" alt="">
+        </div>
+    </div>
+    <!-- loader -->
+    <!-- mobile navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-black admin-nav-mobile">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars text-white fs-1 border-2 border-danger"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 nav-index">
+                <li class="nav-item">
+                    <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="live-stream.html">Live Stream List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="uploadvideo.html">Video List</a>
+                </li>
+            </ul>
+            <div>
+                <a href="index.html" class="login-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i> <span>Logout</span></a>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+    <!-- desktop navbar -->
     <div class="d-flex" id="admin-panel">
         <div class="" id="sidebar">
             <!-- <img src="img/logo.png" class="" style="width: 10rem;" alt=""> -->
@@ -26,9 +60,6 @@
         </div>
         <!-- main -->
         <div class="uploadvideo-main-content-div" id="main-content">
-            <div class="center-loader">
-                <div class="loader" id="loader"></div>
-            </div>
                         <!-- video upload -->
                         <div class="" id="videos">
                             <!-- navbar video upload -->
@@ -40,11 +71,11 @@
                             <!-- table video upload -->
                             <table class="uploadvideo-table-div" id="uploadvideo-table">
                                 <thead>
-                                    <tr class="row">
-                                        <th class="col-1 text-center">#</th>
-                                        <th class="col-2 text-center">TITLE</th>
-                                        <th class="col-7 text-center">URL</th>
-                                        <th class="col-2 text-center">ACTION</th>
+                                    <tr class="">
+                                        <th class=" text-center">#</th>
+                                        <th class=" text-center">TITLE</th>
+                                        <th class=" text-center uploadvideo-videourl">URL</th>
+                                        <th class=" text-center">ACTION</th>
                                     </tr>
                                 </thead>
                                 <tbody id="video-upload-tbody">
@@ -92,7 +123,20 @@
             }
             
         }
+
+            // window load page spinner animate
+    $(document).ready(function () {
+        const loader = $('#loader');
+    
+        loader.addClass('loader-hidden');
+    
+        loader.on('transitionend', function () {
+            $('body').removeClass('loader-hidden');
+            $('#livestream-table').hide();
+        });
+    });
     </script>
+
     <!-- <script src="./js/js.js"></script> -->
     <script src="./js/uploadvideo.js"></script>
     <script src="./js/all.min.js"></script>

@@ -59,13 +59,3 @@ function onloginPageload(){
 }
 // window load login form show function end
 
-// window load page spinner animate
-$(document).ready(function () {
-    const loader = $('.loader');
-    loader.addClass('loader-hidden');
-
-    loader.on('transitionend', function () {
-        loader.remove();
-        $('.login-form').hide();
-    });
-});

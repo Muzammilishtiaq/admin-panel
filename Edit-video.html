@@ -13,6 +13,11 @@
 </head>
 
 <body onload="onEditvideoPageLoad()">
+    <div class="center-loader">
+        <div class="loader" id="loader">
+            <img src="img/loader.gif" alt="">
+        </div>
+    </div>
     <div class="d-flex" id="admin-panel">
         <div class="" id="sidebar">
             <!-- <img src="img/logo.png" class="" style="width: 10rem;" alt=""> -->
@@ -42,6 +47,10 @@
                         <label for="description" class="form-label">Description</label>
                         <textarea class="form-control" id="edit-video-description" placeholder="Enter Description"
                             cols="5" rows="5"></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="url" class="form-label">IMAGE URL</label>
+                        <input type="text" class="form-control" id="edit-img-video-url" placeholder="Enter Image Url">
                     </div>
                     <div class="mb-3">
                         <label for="url" class="form-label">URL</label>

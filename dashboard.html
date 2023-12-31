@@ -13,6 +13,40 @@
 </head>
 
 <body>
+    <div class="center-loader">
+        <div class="loader" id="loader">
+            <img src="img/loader.gif" alt="">
+        </div>
+    </div>
+    <!-- loader end -->
+    <!-- mobile navbar -->
+    <nav class="navbar navbar-expand-lg bg-body-black admin-nav-mobile">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#"><img src="img/logo.png" alt=""></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa-solid fa-bars text-white fs-1 border-2 border-danger"></i>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav ms-auto me-auto mb-2 mb-lg-0 nav-index">
+                <li class="nav-item">
+                    <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="dashboard.html">Dashboard</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="live-stream.html">Live Stream List</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active text-white fs-5 fw-bold" aria-current="page" href="uploadvideo.html">Video List</a>
+                </li>
+            </ul>
+            <div>
+                <a href="index.html" class="login-btn">
+                    <i class="fa-solid fa-right-to-bracket"></i> <span>Logout</span></a>
+
+            </div>
+          </div>
+        </div>
+      </nav>
+      <!-- desktop navbar -->
     <div class="d-flex" id="admin-panel">
         <div class="" id="sidebar">
             <!-- <img src="img/logo.png" class="" style="width: 10rem;" alt=""> -->
@@ -35,33 +69,33 @@
         <div class="" id="main-content ">
             <div class="card-container">
                 <div class="view-card">
-                    <div class="d-flex gap-5 mb-2"><h1 class="text-white fs-6">View</h1>
+                    <div class="d-flex gap-5 mb-2 justify-content-between align-items-center"><h1 class="text-white fs-6">View</h1>
                     <span class="bg-danger px-2 py-1 rounded"><i class="fa-solid fa-eye text-white "></i></span></div>
-                    <div class="d-flex gap-5 align-items-center">
+                    <div class="d-flex gap-5 justify-content-between align-items-center">
                         <h1 class="text-white fs-3">+24K</h1>
                         <h1 class="text-white fs-6">35%</h1>
                     </div>
                 </div>
                 <div class="rated-card">
-                    <div class="d-flex gap-5 mb-2"><h1 class="text-white fs-6">Rated This App</h1>
+                    <div class="d-flex gap-5 mb-2 justify-content-between align-items-center"><h1 class="text-white fs-6">Rated This App</h1>
                         <span class="bg-warning text-white px-2 py-1 rounded"><i class="fa-solid fa-star"></i> </span></div>
-                        <div class="d-flex gap-5 align-items-center">
+                        <div class="d-flex gap-5 align-items-center justify-content-between">
                             <h1 class="text-white fs-3">+55K</h1>
                             <h1 class="text-white fs-6">35%</h1>
                         </div>
                 </div>
                 <div class="download-card">
-                    <div class="d-flex gap-5 mb-2"><h1 class="text-white fs-6">Downloaded</h1>
+                    <div class="d-flex gap-5 mb-2 justify-content-between align-items-center"><h1 class="text-white fs-6">Downloaded</h1>
                         <span class="bg-info text-white px-2 py-1 rounded"><i class="fa-solid fa-eye text-white "></i></span></div>
-                        <div class="d-flex gap-5 align-items-center">
+                        <div class="d-flex gap-5 align-items-center justify-content-between">
                             <h1 class="text-white fs-3">+1M</h1>
                             <h1 class="text-white fs-6">35%</h1>
                         </div>
                 </div>
                 <div class="vistors-card">
-                    <div class="d-flex gap-5 mb-2"><h1 class="text-white fs-6">VISITORS</h1>
+                    <div class="d-flex gap-5 mb-2 justify-content-between align-items-center"><h1 class="text-white fs-6">VISITORS</h1>
                         <span class="bg-success text-success px-2 py-1 rounded"><i class="fa-solid fa-eye text-white "></i></span></div>
-                        <div class="d-flex gap-5 align-items-center">
+                        <div class="d-flex gap-5 align-items-center justify-content-between">
                             <h1 class="text-white fs-3">+2M</h1>
                             <h1 class="text-white fs-6">35%</h1>
                         </div>
@@ -73,9 +107,7 @@
                 <h1 class="text-info">Dashboard</h1>
             </div> -->
             <!-- end dashboard -->
-            <div class="center-loader">
-                <div class="loader" id="loader"></div>
-            </div>
+           
         </div>
     </div>
     <script>
@@ -91,7 +123,6 @@
 
         }
     </script>
-    <script src="./js/js.js"></script>
     <script src="./js/dashboard.js"></script>
     <script src="./js/all.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
