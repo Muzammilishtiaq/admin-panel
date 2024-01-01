@@ -34,7 +34,6 @@ $('#register-form').submit(function (e) {
 // login submit function
 $('#login').submit(function (e) {
     e.preventDefault();
-    $('#loader').show();
     var loginEmail = $('#logemail').val();
     var loginPassword = $('#logpassword').val();
     var localStoragejsondata = localStorage.getItem('registerpush');

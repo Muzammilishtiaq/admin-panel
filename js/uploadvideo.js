@@ -168,7 +168,7 @@ $(document).ready(function () {
             cardlist += `
                 <div class=" videouploadcard  col" ${index}>
                 <a href="#" onclick="changevideo('${viditem.uploadvideoUrl}','video/mp4')"  >
-                <img src="${viditem.uploadvideoImgUrl}" alt=""></a>
+                <img src="${viditem.uploadvideoImgUrl}" class="uploadimg" alt=""></a>
                 <h3 class="text-white fw-bold">${viditem.uploadvideoTile}</h3>
             </div>
                 `;

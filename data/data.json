@@ -1,0 +1,73 @@
+{
+    "livestreamArray": [
+        {
+            "id":1,
+            "liveTitle": "Austria RTV",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "http://iptv.rtv-ooe.at/stream.m3u8"
+        },{
+            "id":2,
+            "liveTitle": "Austria Tirol TV Ⓖ",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "https://ms01.w24.at/R9/smil:liveeventR9.smil/playlist.m3u8"
+        },{
+            "id":3,
+            "liveTitle": "Austria Kanali 7 Ⓢ",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "https://fe.tring.al/delta/105/out/u/1200_1.m3u8"
+        },{
+            "id":4,
+            "liveTitle": "Austria Alpo TV",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "https://5d00db0e0fcd5.streamlock.net/7236/7236/playlist.m3u8"
+        },{
+            "id":5,
+            "liveTitle": "Austria CNA",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "https://live1.mediadesk.al/cnatvlive.m3u8"
+        },{
+            "id":6,
+            "liveTitle": "Austria News 24 Ⓢ",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "https://tv.balkanweb.com/news24/livestream/playlist.m3u8"
+        },{
+            "id":7,
+            "liveTitle": "Austria Ora News",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "https://live1.mediadesk.al/oranews.m3u8"
+        },{
+            "id":8,
+            "liveTitle": "Austria Panorama TV Ⓢ",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "http://198.244.188.94/panorama/livestream/playlist.m3u8"
+        },{
+            "id":9,
+            "liveTitle": "Austria  Report TV",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "https://deb10stream.duckdns.org/hls/stream.m3u8"
+        },{
+            "id":10,
+            "liveTitle": "Austria TV 7 Albania",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": "https://5d00db0e0fcd5.streamlock.net/7064/7064/playlist.m3u8"
+        }
+    ],
+    "uploadvideoArray": [
+        {
+            "liveTitle": "",
+            "liveDes": "",
+            "liveImg": "",
+            "liveUrl": ""
+        }
+    ]
+}

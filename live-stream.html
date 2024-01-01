@@ -13,11 +13,7 @@
 </head>
 
 <body onLoad="livestreamPageLoad()">
-    <div class="center-loader">
-        <div class="loader" id="loader">
-            <img src="img/loader.gif" alt="">
-        </div>
-    </div>
+
     <!-- mobile navbar -->
     <nav class="navbar navbar-expand-lg bg-body-black admin-nav-mobile">
         <div class="container-fluid">
@@ -59,6 +55,11 @@
         </div>
         <!-- main -->
         <div class="main-content-div" id="main-content">
+            <div class="center-loader">
+                <div class="loader" id="loader">
+                    <!-- <img src="img/loader.gif" alt=""> -->
+                </div>
+            </div>
           
             <!-- live stream -->
             <div class="livestream-container" id="live-stream">
@@ -136,6 +137,7 @@
     <script src="./js/all.min.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/jquery.min.js"></script>
+    <script src="js/loader.js"></script>
 </body>
 
 </html>

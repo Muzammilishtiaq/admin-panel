@@ -1,7 +1,6 @@
 // start live stream naviten click window time hide 
 $('#add-livestream-form').hide();
 $('#livestream-table').hide();
-// $('#loader').hide();
 // end 
 
 //  start add live stream button function
@@ -16,7 +15,6 @@ $('#add-livestream-btn').click(function (e) {
 // start add live stream form function 
 $('#add-livestream-form').submit(function (e) {
     e.preventDefault();
-    $('#loader').show();
     console.log('success')
     const liveStreamData = {
         liveTile: $('#live-stream-title').val(),
@@ -30,7 +28,6 @@ $('#add-livestream-form').submit(function (e) {
         liveStreamArray = [];
     } else {
         liveStreamArray = JSON.parse(liveStreamDataGet)
-        $('#loader').hide();
     }
     liveStreamArray.push(liveStreamData)
 
@@ -99,12 +96,6 @@ function livestreamdetetebtn(index) {
 
 // live stream page load function start
 function livestreamPageLoad() {
-    // alert('live stream page')
-
-    //   let loader=  $('#loader').show();
-    setTimeout(() => {
-        loader
-    }, 4000);
     $('#livestream-table').show();
     livestreamtableform()
 
@@ -115,7 +106,6 @@ function livestreameditbtn(index) {
     window.location.href = `edit-live-stream.html?id=${index}`;
 }
 function onEditPageLoad() {
-    // $('#loader').addClass(hidden);
     const urlParams = new URLSearchParams(window.location.search);
     const index = urlParams.get('id');
 
@@ -181,17 +171,7 @@ function livestreamVPLPageload() {
 }
 // view button function end
 
-// window load page spinner animate
-$(document).ready(function () {
-    const loader = $('#loader');
 
-    loader.addClass('loader-hidden');
-
-    loader.on('transitionend', function () {
-        $('body').removeClass('loader-hidden');
-        $('#livestream-table').hide();
-    });
-});
 
 
 
@@ -251,3 +231,5 @@ $(document).ready(function () {
   });
 
 });
+
+
