@@ -175,7 +175,7 @@ function livestreamVPLPageload() {
 
 
 
-// for each loop card list index page
+// for each loop card list stream page
 $(document).ready(function () {
     const liveStreamDataGet = localStorage.getItem('liveStreamData');
     if (liveStreamDataGet) {
@@ -204,8 +204,6 @@ $(document).ready(function () {
         }
     }
 });
-
-
 // video change index page
 function changevideo(url,type){
     window.location.href=`videoplayer.html?watch=${url}&type=${type}`;
